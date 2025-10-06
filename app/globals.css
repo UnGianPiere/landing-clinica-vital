@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+
+
+
+.mask-fade {
+  mask-image: linear-gradient(to right, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, black 85%, transparent);
+}
+
+@media (max-width: 640px) {
+  .mask-fade {
+    mask-image: linear-gradient(to bottom, black 85%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent);
+  }
+}
