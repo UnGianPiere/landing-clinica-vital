@@ -42,12 +42,13 @@ export default function Servicios() {
     return (
         <section className="px-10 py-10 w-full">
 
-            <div className="px-50 grid sm:grid-cols-3 grid-cols-1 gap-10 ">
+            <div className="px-5 sm:px-50 grid sm:grid-cols-3 grid-cols-1 gap-10 ">
                 {
                     servicios.map((servicio, index) => (
                         <div key={index} className="shadow-md rounded-2xl overflow-hidden relative group  ">
-                            <div className="bg-amber-100 h-80 ">
+                            <div className=" h-80 ">
                                 <img src={servicio.imagen} className="w-full h-full object-cover" alt="" />
+                                <div className="w-full h-full animate-pulse"></div>
                             </div>
 
                             <motion.div

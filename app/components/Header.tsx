@@ -1,9 +1,68 @@
+"use client"
+import { useState, useEffect } from "react";
 import Link from "next/link";
 const Header = () => {
 
+    const [visible, setVisible] = useState(false)
+
+    const handleCerrar = () => {
+        setVisible(false)
+    }
+
+    const handleAbrir = () => {
+        setVisible(true)
+    }
+
     return (
 
-        <header className="w-full flex flex-row justify-between px-10 py-5 shadow-md border-b-1 border-[#5a585825]">
+        <header className="w-full flex flex-row justify-center sm:justify-between px-10 py-5 shadow-md border-b-1 border-[#5a585825]">
+            <div onClick={handleAbrir} className="p-6 absolute top-0 left-0 flex justify-center items-center sm:hidden">
+                ☰
+            </div>
+
+            { visible && (
+                <div className="absolute flex sm:hidden bg-[white] w-50 z-100 inset-0 p-5 font-semibold">
+                    <ul className="flex flex-col gap-3">
+                        <li onClick={handleCerrar}>
+                            X
+                        </li>
+                        <li>
+                            <Link href="/" className="hover:text-[#00c4d6] transition-colors">
+                                Inicio
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="/servicios" className="hover:text-[#00c4d6] transition-colors">
+                                Servicios
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="/especialidades" className="hover:text-[#00c4d6] transition-colors">
+                                Especialidades
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="/equipos" className="hover:text-[#00c4d6] transition-colors">
+                                Equipos
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="/nosotros" className="hover:text-[#00c4d6] transition-colors">
+                                Sobre Nosotros
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="/contact" className="hover:text-[#00c4d6] transition-colors">
+                                Contacto
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
+
+
+            )}
+
+
             <div className="flex gap-2 flex-row justify-center items-center text-[#00C4D6] font-bold text-[21px]">
                 <svg
                     className="h-8 w-8 text-primary"
@@ -55,11 +114,12 @@ const Header = () => {
                     </li>
                 </ul>
             </div>
-            <div>
-                <button className="bg-[#00C4D6] text-[#0E182B] px-4 py-1 font-semibold rounded-[8px] hover:bg-[#067883] hover:text-[#f1f2f5] cursor-pointer">
+            <div className="sm:flex hidden">
+                <button className=" bg-[#00C4D6] text-[#0E182B] px-4 py-1 font-semibold rounded-[8px] hover:bg-[#067883] hover:text-[#f1f2f5] cursor-pointer">
                     Agendar Cita
                 </button>
             </div>
+
         </header>
 
     )
